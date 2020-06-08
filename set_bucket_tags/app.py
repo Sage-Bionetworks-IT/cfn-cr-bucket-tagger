@@ -6,6 +6,7 @@ import traceback
 import boto3
 import requests
 
+from botocore.config import Config
 from crhelper import CfnResource
 
 
@@ -19,7 +20,13 @@ helper = CfnResource(
 
 
 def get_s3_client():
-  return boto3.client('s3')
+  config = Config(
+   retries = {
+      'max_attempts': 10,
+      'mode': 'standard'
+   }
+  )
+  return boto3.client('s3', config=config)
 
 
 def get_bucket_name(event):
@@ -92,7 +99,7 @@ def add_owner_email_tag(tags, email):
 @helper.create
 @helper.update
 def create_or_update(event, context):
-  '''Handles customm resource create and update events'''
+  '''Handles custom resource create and update events'''
   log.debug('Received event: ' + json.dumps(event, sort_keys=False))
   log.info('Start SetBucketTags Lambda processing')
   log.debug('Received event: ' + json.dumps(event, sort_keys=False))

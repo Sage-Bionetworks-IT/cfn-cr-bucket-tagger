@@ -11,7 +11,7 @@ pre-commit = "*"
 
 [packages]
 aws-sam-cli = "*"
-boto3 = "*"
+boto3 = ">=1.13"
 botocore = "*"
 requests = "*"
 crhelper = "*"

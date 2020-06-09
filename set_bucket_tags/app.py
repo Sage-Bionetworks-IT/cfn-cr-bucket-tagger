@@ -23,7 +23,7 @@ def get_s3_client():
   config = Config(
    retries = {
       'max_attempts': 10,
-      'mode': 'standard'
+      'mode': 'adaptive'
    }
   )
   return boto3.client('s3', config=config)

@@ -1,4 +1,9 @@
-# cfn-cr-bucket-tagger
+# cfn-cr-bucket-tagger is deprecated
+
+This project is deprecated and will no longer be maintained.  The functionality of
+this bucket tagger has been moved to the [cfn-cr-synapse-tagger](https://github.com/Sage-Bionetworks-IT/cfn-cr-synapse-tagger)
+
+---
 
 Cloudformation Custom Resource that sets tags for a S3 bucket.
 
